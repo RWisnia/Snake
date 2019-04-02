@@ -1,14 +1,8 @@
 package snake;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -20,6 +14,7 @@ public class Statistics extends JPanel{
   
     JLabel MyPoints;
     JLabel Speed;
+    JLabel GameOver;
     
     public Statistics(int speed,int points){
         MyPoints = new JLabel("Points: "+points);
@@ -49,5 +44,17 @@ public class Statistics extends JPanel{
     
     public void ChangeSpeedDisplay(int speed){
         Speed.setText("Speed: "+speed);
+    }
+    
+    // show Game Over
+    public void setGameOver(){
+        MyPoints.setVisible(false);
+        Speed.setVisible(false);
+        GameOver = new JLabel("Game Over");
+        GameOver.setVisible(true);
+        add(GameOver);
+        
+        GameOver.setLocation(170,1);
+        GameOver.setSize(100,20);
     }
 }
